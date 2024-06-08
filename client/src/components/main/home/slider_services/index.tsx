@@ -38,7 +38,7 @@ const Services: FC = () => {
                     <Service data={{ img: img, header: 'Заголовок5', body: 'Цитата1' }} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Service data={{ img: img, header: 'Заголовок6', body: 'Цитата1' }} />
+                    <Service data={{ img: img, header: '!Заголовок6', body: 'Цитата1' }} />
                 </SwiperSlide>
             </Swiper>
         </div>
