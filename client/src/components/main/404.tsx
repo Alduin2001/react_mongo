@@ -5,7 +5,7 @@ const NotFound: FC = () => {
         <section className="text-white w-full mx-auto text-xl p-10">
             <h1>Ошибка 404!!!</h1>
             <p>Страница не найдена или у вас недостаточно прав доступа, поэтому съебись отсюда</p>
-            <svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+            <svg width="80%" height="400" xmlns="http://www.w3.org/2000/svg">
                 <rect width="100%" height="100%" fill="#f2f2f2" />
 
                 <text x="50%" y="40%" font-size="100" text-anchor="middle" fill="#e74c3c" font-family="Arial, sans-serif">404</text>

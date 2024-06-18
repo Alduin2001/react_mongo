@@ -7,7 +7,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div className="bg-image h-full flex flex-col gap-2 w-full">
+    <div className="bg-image bg-no-repeat bg-cover bg-center h-full flex flex-col gap-2 w-full">
       <Header/>
       <Main/>
       <Footer/>

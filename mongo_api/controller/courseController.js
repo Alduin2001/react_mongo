@@ -14,12 +14,26 @@ class CourseController {
         } catch (err) {
             res.status(500).json({ msg: err });
         }
-
     }
     static async read(req, res) {
         try {
-            const course = await Course.find({});
-            res.status(200).json({ course: course });
+            const courses = await Course.aggregate([
+                {
+                    $project: {
+                        _id: 1,
+                        name: 1,
+                        description: 1,
+                        averageMark: {
+                            $cond: {
+                                if: { $eq: [{ $size: "$marks" }, 0] },
+                                then: 0,
+                                else: { $avg: "$marks" }
+                            }
+                        }
+                    }
+                }
+            ]);
+            res.status(200).json({ course: courses });
         } catch (err) {
             res.status(500).json({ msg: err });
         }
@@ -37,13 +51,13 @@ class CourseController {
             res.status(500).json({ msg: err });
         }
     }
-    static async delete(req,res){
-        try{
+    static async delete(req, res) {
+        try {
             const id = JSON.parse(req.params.id);
             const course = await Course.findByIdAndDelete(id);
-            res.status(300).json({msg:'Успешно удалён'});
-        }catch(err){
-            res.status(500).json({msg:err});
+            res.status(300).json({ msg: 'Успешно удалён' });
+        } catch (err) {
+            res.status(500).json({ msg: err });
         }
     }
 

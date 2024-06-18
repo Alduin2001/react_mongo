@@ -15,7 +15,7 @@ const Statistic: FC = () => {
     return (
         <section className="w-full grid grid-cols-1 grid-rows-2 gap-2 p-2">
             {/* Bar */}
-            <div className="w-full mx-auto bg-white p-1">
+            <div className="w-full mx-auto bg-font p-1">
                 <h1 className="text-xl">Bar</h1>
                 <Bar
                     data={{
@@ -55,7 +55,7 @@ const Statistic: FC = () => {
             </div>
             <div className="w-full grid grid-cols-2 gap-1">
                 {/* Line */}
-                <div className="w-full bg-white p-1">
+                <div className="w-full bg-font p-1">
                     <h1 className="text-xl">Line</h1>
                     <Line className="w-full"
                         data={{
@@ -103,7 +103,7 @@ const Statistic: FC = () => {
                     />
                 </div>
                 {/* Circle (Doughnut) */}
-                <div className="w-full bg-white p-1">
+                <div className="w-full bg-font p-1">
                     <h1 className="text-xl">Circle (Doughnut)</h1>
                     <Doughnut className="w-full"
                         data={{

@@ -1,11 +1,10 @@
 import UserStore from "./userStore";
-import CategoryStore from "./categoryStore";
+import CourseStore from "./courseStore";
 export default class RootStore{
     userStore:UserStore;
-    categoryStore:CategoryStore;
-
+    courseStore:CourseStore;
     constructor(){
         this.userStore = new UserStore();
-        this.categoryStore = new CategoryStore();
+        this.courseStore = new CourseStore();
     }
 }

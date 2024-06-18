@@ -1,9 +1,11 @@
 import { makeAutoObservable } from "mobx";
 import MainService from "../services/MainService";
+import { jwtDecode } from "jwt-decode";
 
 export default class UserStore {
     public isAuth: boolean = !!localStorage.getItem('auth');
     public token: string = localStorage.getItem('token') || '';
+    public role: string = localStorage.getItem('role') || '';
 
     constructor() {
         makeAutoObservable(this);
@@ -31,8 +33,11 @@ export default class UserStore {
     public authUser = async (data: object) => {
         try {
             const response = await MainService.auth('users/auth', data);
-            this.setToken(response.token);
-            this.setAuth(true);
+            const payload = jwtDecode(response.token);
+                this.setRole(payload.role);
+                this.setToken(response.token);
+                this.setAuth(true);
+
             return response.token;
         } catch (err) {
             return err;
@@ -40,6 +45,7 @@ export default class UserStore {
     }
     // Metod for mobx to logout
     public logoutUser = (): void => {
+        this.removeRole('');
         this.removeAuth(false);
         this.removeToken('');
     }
@@ -61,4 +67,13 @@ export default class UserStore {
         this.token = token;
         localStorage.removeItem('token');
     }
+    private setRole = (role:string):void=>{
+        this.role = role;
+        localStorage.setItem('role', role);
+    }
+    private removeRole = (role:string):void=>{
+        this.role = role;
+        localStorage.removeItem('role');
+    }
+    
 }

@@ -3,10 +3,14 @@ const userRoutes = require('./user_routes');
 const courseRoutes = require('./course_routes');
 const themeRoutes = require('./theme_routes');
 const lectureRoutes = require('./lecture_routes');
+const reviewRoutes = require('./review_routes');
+const newsRouter = require('./news_routes');
 
 router.use('/users/',userRoutes);
 router.use('/course/',courseRoutes);
 router.use('/theme/',themeRoutes);
 router.use('/lecture/',lectureRoutes);
+router.use('/review/',reviewRoutes);
+router.use('/news/',newsRouter);
 
 module.exports = router;

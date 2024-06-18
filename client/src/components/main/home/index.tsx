@@ -40,10 +40,10 @@ const Home:FC = ()=>{
                     <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque ea inventore nulla asperiores doloribus alias rem perferendis sequi molestiae commodi? Aliquam nihil nostrum impedit repudiandae. Suscipit aspernatur itaque nemo deserunt?</h1>
                 </div>
             </div>
-            <div className="w-4/5 flex flex-col gap-1 mx-auto">
+            <motion.div initial={{opacity:0}} whileInView={{opacity:1, transition:{delay:.4}}} className="w-4/5 flex flex-col gap-1 mx-auto">
                 <h1>Топ товаров</h1>
             <Services />
-            </div>
+            </motion.div>
 
             <div className="w-4/5 mx-auto">
                 <h1>Ссылка на нашего бота</h1>

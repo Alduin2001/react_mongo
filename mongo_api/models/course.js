@@ -22,6 +22,10 @@ const courseSchema = new mongoose.Schema({
             message:'Не должно быть посторонних символов'
         }
     },
+    marks:{
+        type:Array,
+        default:[]
+    },
     createdAt:{
         type:Date,
         default:Date.now

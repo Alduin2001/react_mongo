@@ -23,22 +23,22 @@ const Services: FC = () => {
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}>
                 <SwiperSlide>
-                    <Service data={{ img: img, header: 'Заголовок1', body: 'Цитата1' }} />
+                    <Service data={{ img: img, header: 'Заголовок1', body: 'Цитата1',price:'12' }} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Service data={{ img: img, header: 'Заголовок2', body: 'Цитата1' }} />
+                    <Service data={{ img: img, header: 'Заголовок2', body: 'Цитата1',price:'12' }} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Service data={{ img: img, header: 'Заголовок3', body: 'Цитата1' }} />
+                    <Service data={{ img: img, header: 'Заголовок3', body: 'Цитата1',price:'12' }} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Service data={{ img: img, header: 'Заголовок4', body: 'Цитата1' }} />
+                    <Service data={{ img: img, header: 'Заголовок4', body: 'Цитата1',price:'12' }} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Service data={{ img: img, header: 'Заголовок5', body: 'Цитата1' }} />
+                    <Service data={{ img: img, header: 'Заголовок5', body: 'Цитата1',price:'12' }} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <Service data={{ img: img, header: '!Заголовок6', body: 'Цитата1' }} />
+                    <Service data={{ img: img, header: '!Заголовок6', body: 'Цитата1',price:'12' }} />
                 </SwiperSlide>
             </Swiper>
         </div>

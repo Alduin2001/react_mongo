@@ -1,66 +1,42 @@
 import axios from "axios";
-export default class MainService{
-    // Metod create
-    public static async create(url:string,data:object):Promise<any>{
-        try{
-            const created = await axios.post(`/api/${url}`,data);
-            return created.data;
-        }catch(err){
-            return err;
+
+export default class MainService {
+    private static async request<T>(method: string, url: string, data?: object, token?: string): Promise<T> {
+        try {
+            const headers = token ? { Authorization: `Bearer ${token}` } : {};
+            const response = await axios[method](`/api/${url}`, data, { headers });
+            return response.data;
+        } catch (err) {
+            // Типизируйте ошибку и обрабатывайте её соответствующим образом
+            throw err;
         }
     }
-    // Metod auth
-    public static async auth(url:string,data:object):Promise<any>{
-        try{
-            const authed = await axios.post(`/api/${url}`,data);
-            return authed.data;
-        }catch(err){
-            return err;
-        }
+
+    public static async create(url: string, data: object, token: string): Promise<any> {
+        return MainService.request<any>('post', url, data, token);
     }
-    // Metod logout
-    public static async logout(url:string,data:object):Promise<any>{
-        try{
-            const logouted = await axios.post(`/api/${url}`,data);
-            return logouted.data;
-        }catch(err){
-            return err;
-        }
+
+    public static async auth(url: string, data: object): Promise<any> {
+        return MainService.request<any>('post', url, data);
     }
-    // Metod get
-    public static async get(url:string):Promise<any>{
-        try{
-            const getted = await axios.get(`${url}`);
-            return getted.data;
-        }catch(err){
-            return err;
-        }
+
+    public static async logout(url: string, data: object): Promise<any> {
+        return MainService.request<any>('post', url, data);
     }
-    // Metod for pagination
-    public static async pagination(url:string,page:number,limit:number):Promise<any>{
-        try{
-            const paginated = await axios.get(`${url}?page=${page}&limit=${limit}`);
-            return paginated.data;
-        }catch(err){
-            return err;
-        }
+
+    public static async get(url: string): Promise<any> {
+        return MainService.request<any>('get', url);
     }
-    // Metod update
-    public static async update(url:string,id:number,data:object):Promise<any>{
-        try{
-            const updated = await axios.put(`${url}/${id}`,data);
-            return updated.data;
-        }catch(err){
-            return err;
-        }
+
+    public static async pagination(url: string, page: number, limit: number): Promise<any> {
+        return MainService.request<any>('get', `${url}?page=${page}&limit=${limit}`);
     }
-    // Metod delete
-    public static async delete(url:string,id:number):Promise<any>{
-        try{
-            const deleted = await axios.delete(`${url}/${id}`);
-            return deleted.data;
-        }catch(err){
-            return err;
-        }
-    }   
+
+    public static async update(url: string, id: number, data: object): Promise<any> {
+        return MainService.request<any>('put', `${url}/${id}`, data);
+    }
+
+    public static async delete(url: string, id: number): Promise<any> {
+        return MainService.request<any>('delete', `${url}/${id}`);
+    }
 }

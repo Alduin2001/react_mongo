@@ -1,0 +1,21 @@
+.bg-menu{
+    position:fixed;
+    top:0;
+    right:0;
+    width:20%;
+    padding:10px;
+    height:100vh;
+    background: #5e0b50;
+    z-index: 1000;
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    align-items: center;
+    font-size:1rem;
+}
+
+@media screen and (max-width:500px) {
+    .bg-menu{
+        width:50%;
+    }
+}

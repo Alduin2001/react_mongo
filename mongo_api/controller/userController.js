@@ -22,6 +22,7 @@ class UserController {
     }
     //Metod auth
     static async auth(req, res) {
+        console.log(req.body);
         try {
             const { login, password } = req.body;
             const findedByLogin = await User.findOne({ login: login });
@@ -38,9 +39,11 @@ class UserController {
                         id: findedByLogin.id,
                         firstname: findedByLogin.firstname,
                         lastname: findedByLogin.lastname,
-                        login: findedByLogin.login
+                        login: findedByLogin.login,
+                        role: findedByLogin.role
+
                     };
-                    const token = jwt.sign(userData, process.env.SECRET_KEY, { expiresIn: '10m' });
+                    const token = jwt.sign(userData, process.env.SECRET_KEY, { expiresIn: '1h' });
                     res.status(200).json({ token: token });
                 }
             }

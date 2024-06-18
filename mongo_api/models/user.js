@@ -18,9 +18,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    isAdmin: {
-        type: Boolean,
-        default: false
+    role: {
+        type: String,
+        default: 'Курсант'
     },
     auth_token: {
         type: String,

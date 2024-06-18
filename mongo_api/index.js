@@ -4,6 +4,8 @@ const router = require('./routes');
 const http = require('http');
 const socketIO = require('socket.io');
 const cors = require('cors');
+const colors = require('colors');
+const limiter = require('./middleware/limiter');
 //Подключение к БД
 db();
 //Создание express-приложения
@@ -28,6 +30,7 @@ io.on('connection',(socket)=>{
 app.use(express.json());
 app.use(cors({origin:'*'}));
 app.use(router);
+app.use(limiter);
 async function startServer(){
     await server.listen(port,(err)=>err ? console.log(err) : console.log(`The server started at ${port}`));
 }
