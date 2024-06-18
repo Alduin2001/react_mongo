@@ -1,0 +1,1 @@
+{"options":{"validator":{"pattern":{}},"validationLevel":"strict","validationAction":"error"},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"}],"uuid":"845976756a1643db865d13a676eee1e0","collectionName":"collections","type":"collection"}
